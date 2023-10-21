@@ -14,6 +14,7 @@ export interface IUser {
   state: String;
   birthDate: Date;
   password: String;
+  permission: Number;
 }
 
 export interface IUserInstance extends IUser, Document {
