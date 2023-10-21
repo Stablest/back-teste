@@ -1,4 +1,3 @@
-import express from "express";
 import { configDotenv } from "dotenv";
 import { userModel } from "./user.model";
 import { IUser } from "./interfaces/user.interface";
@@ -39,12 +38,7 @@ async function registerUser(
 ) {
   try {
     const user = await userModel.create({ ...req.body });
-    const token = user.createJWT();
-    const responseObject: ITokenResponse = {
-      user: { id: user._id },
-      token,
-    };
-    res.status(201).json(responseObject);
+    res.status(201).json({ user: user });
   } catch (err: unknown) {
     next(err);
   }
@@ -65,11 +59,7 @@ async function getAllUsers(
   }
 }
 
-async function getUserById(
-  req: Request<any, any, ITokenUser>,
-  res: Response,
-  next: NextFunction
-) {
+async function getUserById(req: Request, res: Response, next: NextFunction) {
   try {
     const { id } = req.body;
     if (res.locals.user.permission != Permission.ADM) {
@@ -83,4 +73,31 @@ async function getUserById(
   }
 }
 
-export { loginUser, registerUser, getAllUsers, getUserById };
+async function updateUserById(req: Request, res: Response, next: NextFunction) {
+  try {
+    const { id, ...newInfo } = req.body;
+    console.log(id);
+    const updatedUser = await userModel.findByIdAndUpdate(id, newInfo, {
+      new: true,
+    });
+    res.status(200).json({ user: updatedUser });
+  } catch (err) {
+    next(err);
+  }
+}
+
+async function deleteUserById(req: Request, res: Response, next: NextFunction) {
+  try {
+  } catch (err) {
+    next(err);
+  }
+}
+
+export {
+  loginUser,
+  registerUser,
+  getAllUsers,
+  getUserById,
+  updateUserById,
+  deleteUserById,
+};
