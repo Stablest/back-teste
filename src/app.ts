@@ -7,5 +7,6 @@ const app = express();
 
 app.use(express.json());
 app.use(`${apiPath}/user`, userRouter);
+app.use(errorHandler);
 
 export { app };
