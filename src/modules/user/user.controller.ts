@@ -72,7 +72,8 @@ async function getUserById(req: Request, res: Response, next: NextFunction) {
 
 async function updateUserById(req: Request, res: Response, next: NextFunction) {
   try {
-    const { id, ...newInfo } = req.body;
+    const { id } = req.params;
+    const { newInfo } = req.body;
     const updatedUser = await userModel.findByIdAndUpdate(id, newInfo, {
       new: true,
     });
@@ -84,7 +85,7 @@ async function updateUserById(req: Request, res: Response, next: NextFunction) {
 
 async function deleteUserById(req: Request, res: Response, next: NextFunction) {
   try {
-    const { id } = req.body;
+    const { id } = req.params;
     const deletedUser = await userModel.findByIdAndDelete(id);
     res.status(200).json({ user: deletedUser });
   } catch (err) {
