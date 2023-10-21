@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { configDotenv } from "dotenv";
+import { Permission } from "./interfaces/permission.enum";
 configDotenv();
 
 const UserSchema = new mongoose.Schema<IUserInstance>({
@@ -54,6 +55,7 @@ const UserSchema = new mongoose.Schema<IUserInstance>({
     required: [true, "Por favor insira uma data de nascimento"],
   },
   password: { type: String, required: [true, "Por favor insira uma senha"] },
+  permission: { type: Number, default: Permission.COMMOM },
 });
 
 UserSchema.pre("save", async function () {
