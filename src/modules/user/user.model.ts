@@ -1,5 +1,5 @@
+import { IUserInstance } from "./interfaces/user.interface";
 import mongoose from "mongoose";
-import { IUserInstance } from "../utils/interfaces/IUser";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { configDotenv } from "dotenv";

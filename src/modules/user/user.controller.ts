@@ -1,8 +1,9 @@
 import express from "express";
 import { configDotenv } from "dotenv";
-import { userModel } from "../models/User";
-import { IUser } from "../utils/interfaces/IUser";
-import { ITokenResponse } from "../utils/interfaces/IToken";
+import { userModel } from "./user.model";
+import { IUser } from "./interfaces/user.interface";
+import { ITokenResponse } from "./interfaces/token.interface";
+
 configDotenv();
 
 async function loginUser(
