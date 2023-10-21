@@ -8,7 +8,7 @@ const mongoUri = process.env.MONGO_URI || "";
 
 async function start() {
   try {
-    await mongoose.connect(mongoUri, { autoIndex: true });
+    await mongoose.connect(mongoUri, { autoIndex: true, dbName: "CRUD-TESTE" });
     console.log("Connected to database");
     app.listen(port, () => {
       console.log("Server is listening on port", port);
