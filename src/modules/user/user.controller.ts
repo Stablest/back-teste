@@ -52,7 +52,7 @@ async function getAllUsers(
   try {
     if (res.locals.user.permission < Permission.ADM)
       throw new Error("Not authorized to acess this route");
-    const allUsers = await userModel.find({}, "name email permission");
+    const allUsers = await userModel.find();
     res.status(200).json({ users: allUsers });
   } catch (err) {
     next(err);
