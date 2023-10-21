@@ -61,11 +61,8 @@ async function getAllUsers(
 
 async function getUserById(req: Request, res: Response, next: NextFunction) {
   try {
-    const { id } = req.body;
-    if (res.locals.user.permission != Permission.ADM) {
-      if (res.locals.user.id != id)
-        throw new Error("Not authorized to acess this route");
-    }
+    const { id } = req.params;
+    if (!id) throw new Error("aa");
     const user = await userModel.findById(id);
     res.status(200).json({ user: user });
   } catch (err) {
@@ -76,7 +73,6 @@ async function getUserById(req: Request, res: Response, next: NextFunction) {
 async function updateUserById(req: Request, res: Response, next: NextFunction) {
   try {
     const { id, ...newInfo } = req.body;
-    console.log(id);
     const updatedUser = await userModel.findByIdAndUpdate(id, newInfo, {
       new: true,
     });
@@ -88,6 +84,9 @@ async function updateUserById(req: Request, res: Response, next: NextFunction) {
 
 async function deleteUserById(req: Request, res: Response, next: NextFunction) {
   try {
+    const { id } = req.body;
+    const deletedUser = await userModel.findByIdAndDelete(id);
+    res.status(200).json({ user: deletedUser });
   } catch (err) {
     next(err);
   }
