@@ -9,8 +9,13 @@ configDotenv();
 const UserSchema = new mongoose.Schema<IUserInstance>({
   name: { type: String, required: [true, "Por favor insira um nome"] },
   cpf: {
-    type: Number,
+    type: String,
     required: [true, "Por favor insira um cpf"],
+    unique: true,
+  },
+  login: {
+    type: String,
+    required: [true, "Por favor insira um login"],
     unique: true,
   },
   email: {
@@ -19,11 +24,11 @@ const UserSchema = new mongoose.Schema<IUserInstance>({
     unique: true,
   },
   phone: {
-    type: Number,
+    type: String,
     required: [true, "Por favor insira um telefone"],
   },
   postalCode: {
-    type: Number,
+    type: String,
     required: [true, "Por favor insira um CEP"],
   },
   adress: {
@@ -51,7 +56,7 @@ const UserSchema = new mongoose.Schema<IUserInstance>({
     required: [true, "Por favor insira um estado"],
   },
   birthDate: {
-    type: Date,
+    type: String,
     required: [true, "Por favor insira uma data de nascimento"],
   },
   password: { type: String, required: [true, "Por favor insira uma senha"] },
