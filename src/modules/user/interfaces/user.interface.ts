@@ -2,17 +2,18 @@ import { Document } from "mongoose";
 
 export interface IUser {
   name: String;
-  cpf: Number;
+  login: String;
+  cpf: String;
   email: String;
-  phone: Number;
-  postalCode: Number;
+  phone: String;
+  postalCode: String;
   adress: String;
   adressNumber: Number;
   complement: String;
   neighborhood: String;
   city: String;
   state: String;
-  birthDate: Date;
+  birthDate: String;
   password: String;
   permission: Number;
 }
