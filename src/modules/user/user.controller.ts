@@ -46,14 +46,14 @@ async function loginUser(
   next: NextFunction
 ) {
   try {
-    const { email, password } = req.body;
-    if (!email || !password)
-      throw new BadRequestError("Please provide email and password");
-    const user = await userModel.findOne({ email });
-    if (!user) throw new AuthenticationError("Invalid email or password");
+    const { login, password } = req.body;
+    if (!login || !password)
+      throw new BadRequestError("Please provide login and password");
+    const user = await userModel.findOne({ login });
+    if (!user) throw new AuthenticationError("Invalid login or password");
     const isPasswordCorrect = await user.comparePassword(password.toString());
     if (!isPasswordCorrect)
-      throw new AuthenticationError("Invalid email or password");
+      throw new AuthenticationError("Invalid login or password");
     const token = user.createJWT();
     const responseObject: ITokenResponse = {
       user: { id: user._id },
@@ -102,8 +102,8 @@ async function getUserById(req: Request, res: Response, next: NextFunction) {
   try {
     const { id } = req.params;
     if (!id) throw new BadRequestError("Please provide a valid id parameter");
+    console.log(id);
     const user = await userModel.findById(id);
-    if (!user) throw new UnknownError();
     res.status(200).json({ user: user });
   } catch (err) {
     next(err);
@@ -118,7 +118,6 @@ async function updateUserById(req: Request, res: Response, next: NextFunction) {
       new: true,
       runValidators: true,
     });
-    if (!updatedUser) throw new UnknownError();
     res.status(200).json({ user: updatedUser });
   } catch (err) {
     next(err);
@@ -129,7 +128,6 @@ async function deleteUserById(req: Request, res: Response, next: NextFunction) {
   try {
     const { id } = req.params;
     const deletedUser = await userModel.findByIdAndDelete(id);
-    if (!deletedUser) throw new UnknownError();
     res.status(200).json({ user: deletedUser });
   } catch (err) {
     next(err);
