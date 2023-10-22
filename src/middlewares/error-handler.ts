@@ -1,5 +1,5 @@
 import express from "express";
-import { CustomAPIError } from "../errors/CustomAPIError";
+import { CustomAPIError } from "../errors/custom-api-error";
 import mongoose from "mongoose";
 import { MongoServerError } from "mongodb";
 
@@ -38,6 +38,7 @@ function errorTypeResponse(
   if (err instanceof SyntaxError) {
     newError.statusCode = 400;
     newError.message = err.message;
+    return newError;
   }
 
   if (err instanceof MongoServerError) {
