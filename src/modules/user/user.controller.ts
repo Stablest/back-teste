@@ -1,11 +1,44 @@
 import { configDotenv } from "dotenv";
+import jwt from "jsonwebtoken";
 import { userModel } from "./user.model";
 import { IUser } from "./interfaces/user.interface";
 import { ITokenResponse, ITokenUser } from "./interfaces/token.interface";
 import { Permission } from "./interfaces/permission.enum";
 import { Request, Response, NextFunction } from "express";
+import { CustomAPIError } from "../../errors/custom-api-error";
+import { BadRequestError } from "../../errors/bad-request";
+import { AuthenticationError } from "../../errors/authentication-error";
+import { UnknownError } from "../../errors/unknown-error";
 
 configDotenv();
+
+async function verifyUserLogin(
+  req: Request,
+  res: Response,
+  next: NextFunction
+) {
+  try {
+    if (
+      !req.headers.authorization ||
+      !req.headers.authorization.startsWith("Bearer")
+    )
+      throw new Error("Please provide a valid authentication token");
+    const token = req.headers.authorization.split(" ")[1];
+    const tokenPayload = jwt.verify(
+      token,
+      process.env.JWT_SECRET as string
+    ) as ITokenUser;
+
+    const tokenUser: ITokenUser = {
+      id: tokenPayload.id,
+    };
+
+    console.log(tokenUser);
+    res.status(200).json({ success: true });
+  } catch (err) {
+    next(err);
+  }
+}
 
 async function loginUser(
   req: Request<any, any, IUser>,
@@ -15,17 +48,23 @@ async function loginUser(
   try {
     const { email, password } = req.body;
     if (!email || !password)
-      throw new Error("Please provide email and password");
+      throw new BadRequestError("Please provide email and password");
     const user = await userModel.findOne({ email });
-    if (!user) throw new Error("Invalid email or password");
+    if (!user) throw new AuthenticationError("Invalid email or password");
     const isPasswordCorrect = await user.comparePassword(password.toString());
-    if (!isPasswordCorrect) throw new Error("Invalid email or password");
+    if (!isPasswordCorrect)
+      throw new AuthenticationError("Invalid email or password");
     const token = user.createJWT();
     const responseObject: ITokenResponse = {
       user: { id: user._id },
       token,
     };
-    return res.status(200).json(responseObject);
+    return res
+      .cookie("jwt_token", token, {
+        secure: false,
+      })
+      .status(200)
+      .json(responseObject);
   } catch (err: unknown) {
     next(err);
   }
@@ -38,6 +77,7 @@ async function registerUser(
 ) {
   try {
     const user = await userModel.create({ ...req.body });
+    if (!user) throw new UnknownError();
     res.status(201).json({ user: user });
   } catch (err: unknown) {
     next(err);
@@ -50,9 +90,8 @@ async function getAllUsers(
   next: NextFunction
 ) {
   try {
-    if (res.locals.user.permission < Permission.ADM)
-      throw new Error("Not authorized to acess this route");
     const allUsers = await userModel.find();
+    if (!allUsers) throw new UnknownError();
     res.status(200).json({ users: allUsers });
   } catch (err) {
     next(err);
@@ -62,8 +101,9 @@ async function getAllUsers(
 async function getUserById(req: Request, res: Response, next: NextFunction) {
   try {
     const { id } = req.params;
-    if (!id) throw new Error("aa");
+    if (!id) throw new BadRequestError("Please provide a valid id parameter");
     const user = await userModel.findById(id);
+    if (!user) throw new UnknownError();
     res.status(200).json({ user: user });
   } catch (err) {
     next(err);
@@ -73,10 +113,12 @@ async function getUserById(req: Request, res: Response, next: NextFunction) {
 async function updateUserById(req: Request, res: Response, next: NextFunction) {
   try {
     const { id } = req.params;
-    const { newInfo } = req.body;
+    const { ...newInfo } = req.body;
     const updatedUser = await userModel.findByIdAndUpdate(id, newInfo, {
       new: true,
+      runValidators: true,
     });
+    if (!updatedUser) throw new UnknownError();
     res.status(200).json({ user: updatedUser });
   } catch (err) {
     next(err);
@@ -87,6 +129,7 @@ async function deleteUserById(req: Request, res: Response, next: NextFunction) {
   try {
     const { id } = req.params;
     const deletedUser = await userModel.findByIdAndDelete(id);
+    if (!deletedUser) throw new UnknownError();
     res.status(200).json({ user: deletedUser });
   } catch (err) {
     next(err);
@@ -100,4 +143,5 @@ export {
   getUserById,
   updateUserById,
   deleteUserById,
+  verifyUserLogin,
 };
