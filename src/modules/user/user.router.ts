@@ -6,12 +6,13 @@ import {
   loginUser,
   registerUser,
   updateUserById,
+  verifyUserLogin,
 } from "./user.controller";
 import { adminCheck } from "../../middlewares/admin-check";
 
 const userRouter = express.Router();
 
-userRouter.route("/auth").get(loginUser);
+userRouter.route("/auth").get(verifyUserLogin).post(loginUser);
 userRouter
   .route("/")
   .get(adminCheck, getAllUsers)
