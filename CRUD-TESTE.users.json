@@ -1,0 +1,273 @@
+[{
+  "_id": {
+    "$oid": "6535ba83a3934d6dbf628eb7"
+  },
+  "name": "admin",
+  "cpf": "717.517.718-65",
+  "login": "admin",
+  "email": "admin@gmail.com",
+  "phone": "34999887766",
+  "postalCode": "55533111",
+  "adress": "Rua 12",
+  "adressNumber": 12,
+  "complement": "Complemento 1",
+  "neighborhood": "Bairro 5",
+  "city": "Cidade 1",
+  "state": "Minas Gerais",
+  "birthDate": "1983-06-23T21:11",
+  "password": "$2a$10$YF.WZ7P5q9Bh1vV3EdETb./XjeQim1zdYdcywTv18CLQyhtwdYcwO",
+  "permission": 1,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6535c428d1a72a72e59e0aec"
+  },
+  "name": "asasasas",
+  "cpf": "12345678585",
+  "login": "stablessdstaaava233",
+  "email": "marlonlocci@gmailsdasalala232salsss.com",
+  "phone": "34984016197",
+  "postalCode": "38045230",
+  "adress": "Endereco 1",
+  "adressNumber": 123,
+  "complement": "Poste 1",
+  "neighborhood": "Bairro 1",
+  "city": "Uberaba",
+  "state": "Minas Gerais",
+  "birthDate": "2012-04-23T18:25:43.511Z",
+  "password": "$2a$10$UeySMAhVrmfWGXG0NY6rEOcAxjcZ/XSSpGb1CJjM.CiYB2dqnBiBK",
+  "permission": 0,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6535c8063c7d7c53725f9878"
+  },
+  "name": "Usuario 1",
+  "cpf": "53098194448",
+  "login": "usuario 1",
+  "email": "usuario1@gmail.com",
+  "phone": "34984016197",
+  "postalCode": "12345678",
+  "adress": "Endereco 1",
+  "adressNumber": 123,
+  "complement": "Poste 1",
+  "neighborhood": "Bairro 1",
+  "city": "Uberaba",
+  "state": "Minas Gerais",
+  "birthDate": "2012-04-23T18:25:43.511Z",
+  "password": "$2a$10$RwieTufl8sl0lIGIWblYHuxLsoeYK8Au3jua6ivpxjvw5AY7YdBsK",
+  "permission": 0,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6535c8103c7d7c53725f987a"
+  },
+  "name": "Usuario 2",
+  "cpf": "85465806508",
+  "login": "usuario 2",
+  "email": "usuario2@gmail.com",
+  "phone": "34984016197",
+  "postalCode": "12345678",
+  "adress": "Endereco 1",
+  "adressNumber": 123,
+  "complement": "Poste 1",
+  "neighborhood": "Bairro 1",
+  "city": "Uberaba",
+  "state": "Minas Gerais",
+  "birthDate": "2012-04-23T18:25:43.511Z",
+  "password": "$2a$10$7be5ak3SgZsMRpTjzF/KAO3jHSen/N8yw7GdCaPBVCL3XZPsks7TO",
+  "permission": 0,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6535c81f3c7d7c53725f987e"
+  },
+  "name": "Usuario 3",
+  "cpf": "87680173320",
+  "login": "usuario 3",
+  "email": "usuario3@gmail.com",
+  "phone": "34984016197",
+  "postalCode": "12345678",
+  "adress": "Endereco 1",
+  "adressNumber": 123,
+  "complement": "Poste 1",
+  "neighborhood": "Bairro 1",
+  "city": "Uberaba",
+  "state": "Minas Gerais",
+  "birthDate": "2012-04-23T18:25:43.511Z",
+  "password": "$2a$10$YPL84oEHv29o4TWNYWHPYudTznLm8IbKixUd6lmzX6w988Yl.n/vy",
+  "permission": 0,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6535c8323c7d7c53725f9880"
+  },
+  "name": "Usuario 4",
+  "cpf": "94998374265",
+  "login": "usuario 4",
+  "email": "usuario4@gmail.com",
+  "phone": "34984016197",
+  "postalCode": "12345678",
+  "adress": "Endereco 1",
+  "adressNumber": 123,
+  "complement": "Poste 1",
+  "neighborhood": "Bairro 1",
+  "city": "Uberaba",
+  "state": "Minas Gerais",
+  "birthDate": "2012-04-23T18:25:43.511Z",
+  "password": "$2a$10$.LxovPDeIBJqLbNgfG57b.Ol75/ylWekR784NEiTJ8C7jY0hzFcOO",
+  "permission": 0,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6535c8403c7d7c53725f9882"
+  },
+  "name": "Usuario 5",
+  "cpf": "13858250651",
+  "login": "usuario 5",
+  "email": "usuario5@gmail.com",
+  "phone": "34984016197",
+  "postalCode": "12345678",
+  "adress": "Endereco 1",
+  "adressNumber": 123,
+  "complement": "Poste 1",
+  "neighborhood": "Bairro 1",
+  "city": "Uberaba",
+  "state": "Minas Gerais",
+  "birthDate": "2012-04-23T18:25:43.511Z",
+  "password": "$2a$10$BY59VtcHGPbUeW4OgHuHZuXr.bKfRgD2FK3dLuteZdGN.LG38W18O",
+  "permission": 0,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6535c8523c7d7c53725f9884"
+  },
+  "name": "Usuario 6",
+  "cpf": "34230675194",
+  "login": "usuario 6",
+  "email": "usuario6@gmail.com",
+  "phone": "34984016197",
+  "postalCode": "12345678",
+  "adress": "Endereco 1",
+  "adressNumber": 123,
+  "complement": "Poste 1",
+  "neighborhood": "Bairro 1",
+  "city": "Uberaba",
+  "state": "Minas Gerais",
+  "birthDate": "2012-04-23T18:25:43.511Z",
+  "password": "$2a$10$S196ubOObFTzK8/QOjXlAOGDH07AiK/LGF/nwvNpMWsh0eEwZm/by",
+  "permission": 0,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6535c85d3c7d7c53725f9886"
+  },
+  "name": "Usuario 7",
+  "cpf": "74162174237",
+  "login": "usuario 7",
+  "email": "usuario7@gmail.com",
+  "phone": "34984016197",
+  "postalCode": "12345678",
+  "adress": "Endereco 1",
+  "adressNumber": 123,
+  "complement": "Poste 1",
+  "neighborhood": "Bairro 1",
+  "city": "Uberaba",
+  "state": "Minas Gerais",
+  "birthDate": "2012-04-23T18:25:43.511Z",
+  "password": "$2a$10$JeVKN/gF7pz3juJUJF6vsubnTNvAJNP5e3zgFCmEosUNCQYadImhy",
+  "permission": 0,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6535c8683c7d7c53725f9888"
+  },
+  "name": "Usuario 8",
+  "cpf": "86138523784",
+  "login": "usuario 8",
+  "email": "usuario8@gmail.com",
+  "phone": "34984016197",
+  "postalCode": "12345678",
+  "adress": "Endereco 1",
+  "adressNumber": 123,
+  "complement": "Poste 1",
+  "neighborhood": "Bairro 1",
+  "city": "Uberaba",
+  "state": "Minas Gerais",
+  "birthDate": "2012-04-23T18:25:43.511Z",
+  "password": "$2a$10$FF8p8zxeBQQ5c0KlDfn2pe00znf3Rbo1aOb4vksZ7bGrMx2tx5EpO",
+  "permission": 0,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6535c88d3c7d7c53725f988c"
+  },
+  "name": "Usuario 9",
+  "cpf": "08762714171",
+  "login": "usuario 9",
+  "email": "usuario9@gmail.com",
+  "phone": "34984016197",
+  "postalCode": "12345678",
+  "adress": "Endereco 1",
+  "adressNumber": 123,
+  "complement": "Poste 1",
+  "neighborhood": "Bairro 1",
+  "city": "Uberaba",
+  "state": "Minas Gerais",
+  "birthDate": "2012-04-23T18:25:43.511Z",
+  "password": "$2a$10$rNMtEe16jIIE2yL8cTu5F.gWUM.d1THiMHKD8yd/viTImID0y8i0i",
+  "permission": 0,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6535c89b3c7d7c53725f988e"
+  },
+  "name": "Usuario 10",
+  "cpf": "88185148228",
+  "login": "usuario 10",
+  "email": "usuario10@gmail.com",
+  "phone": "34984016197",
+  "postalCode": "12345678",
+  "adress": "Endereco 1",
+  "adressNumber": 123,
+  "complement": "Poste 1",
+  "neighborhood": "Bairro 1",
+  "city": "Uberaba",
+  "state": "Minas Gerais",
+  "birthDate": "2012-04-23T18:25:43.511Z",
+  "password": "$2a$10$VmzZ/AWJBMbmCKoVqGpULOaJvw1viK1pkNIsaaVtOgZ9k0oJTDMV2",
+  "permission": 0,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6535c8bb3c7d7c53725f9892"
+  },
+  "name": "Usuario 11",
+  "cpf": "24142719300",
+  "login": "usuario 11",
+  "email": "usuario11@gmail.com",
+  "phone": "34984016197",
+  "postalCode": "12345678",
+  "adress": "Endereco 1",
+  "adressNumber": 123,
+  "complement": "Poste 1",
+  "neighborhood": "Bairro 1",
+  "city": "Uberaba",
+  "state": "Minas Gerais",
+  "birthDate": "1996-04-23T18:25:43.511Z",
+  "password": "$2a$10$f1wOLIexvwc6CWdg.vGHGOyT92GFn5DesWA03HMajN0Qo2Yq17gyC",
+  "permission": 0,
+  "__v": 0
+}]
