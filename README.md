@@ -14,5 +14,7 @@
    
     JWT_SECRET='eyJhbGciOiJIUzI1NiJ9.eyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJJc3N1ZXIiLCJVc2VybmFtZSI6IkphdmFJblVzZSIsImV4cCI6MTY5ODAyMTk1OSwiaWF0IjoxNjk4MDIxOTU5fQ.xw18kvWqTTqCJ0Ssrxq9fyqMRhMxNBfWGxc9rLCsGF4'
 
-4. Agora basta rodar a aplicação com 'npm run dev'.
+4. Importe o arquivo 'CRUD-TESTE.users.json' para seu banco mongo.
+
+5. Agora basta rodar a aplicação com 'npm run dev'.
    
